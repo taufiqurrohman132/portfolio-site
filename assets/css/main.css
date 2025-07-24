@@ -535,9 +535,9 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../img/bg/abstract-bg-1.webp") no-repeat center center;
+  background: url("../img/bg/realistic-neon-lights-background_23-2148907367.webp") no-repeat center center;
   background-size: cover;
-  opacity: 0.08;
+  opacity: 0.20;
   z-index: 1;
 }
 
