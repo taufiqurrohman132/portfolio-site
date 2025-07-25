@@ -40,10 +40,23 @@
 }
 
 /* Preset Background Tambahan */
-.light-background {
-  --background-color: #f7faff;
-  --surface-color: #ffffff;
+/* Styling untuk section contact dengan background terang */
+.contact.section {
+  background-color: #f9f9f9;
+  color: #222;
 }
+
+/* Supaya heading, paragraf, input, dan textarea tetap terlihat jelas */
+.contact.section h2,
+.contact.section input,
+.contact.section textarea,
+.contact.section label {
+  color: #222;
+}
+
+
+
+
 
 .dark-background {
   --background-color: #0d1117;
