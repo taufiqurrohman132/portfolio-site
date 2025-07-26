@@ -102,18 +102,40 @@
   /**
    * Init typed.js
    */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+  document.addEventListener("DOMContentLoaded", function () {
+    const typedElement = document.querySelector('.typed');
+    const typedItems = typedElement.getAttribute('data-typed-items').split(',');
+
+    let typedInstance = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!typedInstance) {
+            typedInstance = new Typed('.typed', {
+              strings: typedItems,
+              loop: true,
+              typeSpeed: 100,
+              backSpeed: 50,
+              backDelay: 1500
+            });
+          }
+        } else {
+          if (typedInstance) {
+            typedInstance.destroy(); // Hentikan dan hapus instance
+            typedInstance = null;
+            typedElement.textContent = ''; // Reset isi teks agar tidak numpuk
+          }
+        }
+      });
+    }, {
+      threshold: 0.5 // hanya aktif jika minimal 50% elemen terlihat
     });
-  }
+
+    observer.observe(typedElement);
+  });
+
+
 
   /**
    * Animate the skills items on reveal
