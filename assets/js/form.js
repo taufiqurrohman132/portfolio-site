@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form-new');
   if (form) {
     form.addEventListener('submit', () => {
       // Tampilkan loading
