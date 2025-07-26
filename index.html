@@ -1331,7 +1331,9 @@
                 <!-- </div> -->
               <!-- </form> -->
 
-              <form action="https://send.pageclip.co/E80Og5rAslP4j28IagbDrxqOAH1Hw7Ev" class="php-email-form pageclip-form" method="POST" data-aos="fade-up" data-aos-delay="200">
+          
+
+              <form id="contact-form" action="https://formsubmit.co/taufiqurrohman132132@gmail.com" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
@@ -1343,28 +1345,30 @@
                   </div>
 
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                    <input type="text" id="subject-input" class="form-control" name="subject" placeholder="Subject" required>
                   </div>
 
                   <div class="col-12">
                     <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                   </div>
 
-                  <!-- Optional Hidden Field -->
-                  <input type="hidden" name="_subject" value="Pesan Baru dari Portfolio Android">
-                  <input type="hidden" name="_redirect" value="https://taufiqurrohman132.github.io/portfolio-android/#contact">
+                  <!-- Hidden fields for Formsubmit settings -->
+                  <input type="hidden" id="dynamic-subject" name="_subject" value="">
+                  <input type="hidden" name="_template" value="box">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_next" value="https://taufiqurrohman132.github.io/portfolio-android/#contact">
 
                   <div class="col-12 text-center">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                    <!-- Pageclip class di tombol -->
-                    <button type="submit" class="btn pageclip-form__submit">Send Message</button>
+                    <button type="submit" class="btn">Send Message</button>
                   </div>
 
                 </div>
               </form>
+
             </div>
           </div>
 
@@ -1425,6 +1429,9 @@
 
 <!-- Tambahkan sebelum </body> -->
 <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+
+<script src="assets/js/form.js"></script>
+
 </body>
 
 </html>
