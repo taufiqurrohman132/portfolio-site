@@ -1331,7 +1331,7 @@
                 <!-- </div> -->
               <!-- </form> -->
 
-             <form action="https://formsubmit.co/taufiqurrohman132132@gmail.com" method="POST" class="php-email-form" id="contact-form-new" data-aos="fade-up" data-aos-delay="200">
+             <form id="contact-form" class="php-email-form" method="POST" action="https://script.google.com/macros/s/AKfycby5gSoX3GV6tJBtohKV1ESG4wzsC4Ec63glsKoHahZjEmHb4sP-UwCToxLsEOaZTAkZtw/exec">
   <div class="row gy-4">
 
     <div class="col-md-6">
@@ -1339,31 +1339,26 @@
     </div>
 
     <div class="col-md-6">
-      <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+      <input type="email" name="email" class="form-control" placeholder="Your Email" required>
     </div>
 
     <div class="col-12">
-      <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+      <input type="text" name="subject" class="form-control" placeholder="Subject" required>
     </div>
 
     <div class="col-12">
-      <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+      <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
     </div>
-
-    <!-- Hidden Fields for Formsubmit -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_next" value="https://taufiqurrohman132.github.io/portfolio-android/#contact">
 
     <div class="col-12 text-center">
-      <div class="loading-new">Loading</div>
-      <div class="error-message-new"></div>
-      <div class="sent-message-new">Your message has been sent. Thank you!</div>
+      <div class="loading" style="display:none">Loading...</div>
+      <div class="error-message" style="display:none; color:red;"></div>
+      <div class="sent-message" style="display:none; color:green;">Your message has been sent. Thank you!</div>
       <button type="submit" class="btn">Send Message</button>
     </div>
-
   </div>
 </form>
+
 
 
             </div>
