@@ -1331,9 +1331,7 @@
                 <!-- </div> -->
               <!-- </form> -->
 
-          
-
-              <form id="contact-form" action="https://formsubmit.co/taufiqurrohman132132@gmail.com" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form action="https://formsubmit.co/taufiqurrohman132132@gmail.com" method="POST" class="php-email-form" id="contact-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
@@ -1345,24 +1343,25 @@
                   </div>
 
                   <div class="col-12">
-                    <input type="text" id="subject-input" class="form-control" name="subject" placeholder="Subject" required>
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" id="subject-input" required>
                   </div>
 
                   <div class="col-12">
                     <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                   </div>
 
-                  <!-- Hidden fields for Formsubmit settings -->
-                  <input type="hidden" id="dynamic-subject" name="_subject" value="">
-                  <input type="hidden" name="_template" value="box">
+                  <!-- Hidden Fields for Formsubmit -->
                   <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_template" value="box">
                   <input type="hidden" name="_next" value="https://taufiqurrohman132.github.io/portfolio-android/#contact">
+
+                  <!-- Field to dynamically copy subject -->
+                  <input type="hidden" name="_subject" id="dynamic-subject" value="">
 
                   <div class="col-12 text-center">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
-
                     <button type="submit" class="btn">Send Message</button>
                   </div>
 
