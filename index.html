@@ -1331,42 +1331,26 @@
                 <!-- </div> -->
               <!-- </form> -->
 
-              <form action="https://formsubmit.co/taufiqurrohman132132@gmail.com" method="POST" class="php-email-form" id="contact-form" data-aos="fade-up" data-aos-delay="200">
-                <div class="row gy-4">
+              <form action="https://formsubmit.co/taufiqurrohman132132@gmail.com" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                <input type="hidden" name="_subject" value="Pesan dari Portfolio Android">
+                <input type="hidden" name="_next" value="https://taufiqurrohman132.github.io/portfolio-android/#contact">
+                <input type="hidden" name="_captcha" value="false">
 
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                  </div>
+                <!-- Name -->
+                <input type="text" name="name" placeholder="Your Name" required>
 
-                  <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                  </div>
+                <!-- Email -->
+                <input type="email" name="email" placeholder="Your Email" required>
 
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" id="subject-input" required>
-                  </div>
+                <!-- Subject -->
+                <input type="text" name="subject" placeholder="Subject" required>
 
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                  </div>
+                <!-- Message -->
+                <textarea name="message" placeholder="Your Message" required></textarea>
 
-                  <!-- Hidden Fields for Formsubmit -->
-                  <input type="hidden" name="_captcha" value="false">
-                  <input type="hidden" name="_template" value="box">
-                  <input type="hidden" name="_next" value="https://taufiqurrohman132.github.io/portfolio-android/#contact">
-
-                  <!-- Field to dynamically copy subject -->
-                  <input type="hidden" name="_subject" id="dynamic-subject" value="">
-
-                  <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                    <button type="submit" class="btn">Send Message</button>
-                  </div>
-
-                </div>
+                <button type="submit">Send</button>
               </form>
+
 
             </div>
           </div>
