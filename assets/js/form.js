@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', () => {
       // Tampilkan loading
-      form.querySelector('.loading').classList.add('d-block');
-      form.querySelector('.error-message').classList.remove('d-block');
-      form.querySelector('.sent-message').classList.remove('d-block');
+      form.querySelector('.loading-new').classList.add('d-block');
+      form.querySelector('.error-message-new').classList.remove('d-block');
+      form.querySelector('.sent-message-new').classList.remove('d-block');
 
       // Opsional: sembunyikan loading setelah 1 detik
       setTimeout(() => {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Jika redirect ke #contact (berarti pesan sukses)
     if (window.location.hash === '#contact') {
-      form.querySelector('.sent-message').classList.add('d-block');
+      form.querySelector('.sent-message-new').classList.add('d-block');
     }
   }
 });
