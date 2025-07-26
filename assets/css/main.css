@@ -3182,6 +3182,10 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
+/* .starter-section {
   /* Add your styles here */
+/* } */ 
+
+.d-block {
+  display: block !important;
 }
