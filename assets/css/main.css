@@ -21,7 +21,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
-  --background-color: #0d1117; /* Hitam gelap modern untuk latar belakang utama */
+  --background-color: #000000; /* Hitam gelap modern untuk latar belakang utama */
   --default-color: #e6edf3; /* Teks utama, putih kebiruan untuk kenyamanan mata */
   --heading-color: #58a6ff; /* Biru terang untuk judul agar menonjol */
   --accent-color: #1f6feb; /* Biru aksen modern, digunakan di tombol & link */
@@ -37,6 +37,11 @@
   --nav-dropdown-background-color: #1f6feb; /* Dropdown background biru */
   --nav-dropdown-color: #e6edf3; /* Teks dropdown */
   --nav-dropdown-hover-color: #ffffff; /* Hover putih terang */
+}
+
+/* custom teks about */
+.custom-text-about {
+  color: var(--default-color);
 }
 
 /* Preset Background Tambahan */
