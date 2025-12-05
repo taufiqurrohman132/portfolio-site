@@ -24,8 +24,8 @@
 :root {
   --background-color: #000000; /* Hitam pekat full untuk latar belakang utama */
   --default-color: #ffffff; /* Teks utama, putih */
-  --heading-color: #60A5FA; /* Biru muda/Cyan terang untuk judul (High Contrast) */
-  --accent-color: #6D28D9; /* Ungu Gelap / Deep Violet yang kuat untuk aksen utama */
+  --heading-color: #006aff; /* Biru muda/Cyan terang untuk judul (High Contrast) */
+  --accent-color: #6200ff; /* Ungu Gelap / Deep Violet yang kuat untuk aksen utama */
   --secondary-accent-color: #1E40AF; /* Biru Gelap / Royal Blue yang kaya untuk gradien/highlight */
   --surface-color: #0D071F; /* Permukaan komponen (cards/box), ungu gelap sinematik */
   --contrast-color: #ffffff; /* Kontras tinggi untuk teks di atas warna aksen atau gelap */
@@ -70,7 +70,6 @@
   --contrast-color: #ffffff;
 }
 
-
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -79,10 +78,40 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
 body {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-family: var(--default-font);
+  /* Background gradien */
+  background-image: 
+    radial-gradient(circle at 10% 10%,
+      var(--accent-color) 0%,
+      rgba(98, 0, 255, 0.05) 30%,
+      transparent 80%
+    ),
+    radial-gradient(circle at 90% 90%,
+      var(--secondary-accent-color) 0%,
+      rgba(30, 64, 175, 0.08) 30%,
+      transparent 80%
+    ),
+    radial-gradient(circle at 10% 10%,
+      var(--accent-color) 0%,
+      rgba(98, 0, 255, 0.05) 30%,
+      transparent 80%
+    ),
+    radial-gradient(circle at 90% 90%,
+      var(--secondary-accent-color) 0%,
+      rgba(30, 64, 175, 0.08) 30%,
+      transparent 80%
+    );
+
+  background-repeat: no-repeat;
+  background-size: 100% 300%, 100% 300%;   /* 👉 Menjaga background menutupi seluruh tinggi konten */
+  min-height: 100%;
+}
+
+html, body {
+  min-height: 100%;
 }
 
 a {
