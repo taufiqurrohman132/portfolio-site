@@ -14,29 +14,31 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Quicksand",  sans-serif;
-  --nav-font: "Open Sans",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "", sans-serif;
+  --nav-font: "Open Sans", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* --- MODIFIED FOR DEEP VIOLET/ROYAL BLUE ELEGANT SCHEME --- */
 :root {
-  --background-color: #000000; /* Hitam gelap modern untuk latar belakang utama */
-  --default-color: #e6edf3; /* Teks utama, putih kebiruan untuk kenyamanan mata */
-  --heading-color: #58a6ff; /* Biru terang untuk judul agar menonjol */
-  --accent-color: #1f6feb; /* Biru aksen modern, digunakan di tombol & link */
-  --surface-color: #161b22; /* Permukaan komponen seperti card/box, sedikit lebih terang dari background */
+  --background-color: #000000; /* Hitam pekat full untuk latar belakang utama */
+  --default-color: #ffffff; /* Teks utama, putih */
+  --heading-color: #60A5FA; /* Biru muda/Cyan terang untuk judul (High Contrast) */
+  --accent-color: #6D28D9; /* Ungu Gelap / Deep Violet yang kuat untuk aksen utama */
+  --secondary-accent-color: #1E40AF; /* Biru Gelap / Royal Blue yang kaya untuk gradien/highlight */
+  --surface-color: #0D071F; /* Permukaan komponen (cards/box), ungu gelap sinematik */
   --contrast-color: #ffffff; /* Kontras tinggi untuk teks di atas warna aksen atau gelap */
 }
 
 /* Warna khusus untuk menu navigasi */
 :root {
-  --nav-color: #c9d1d9; /* Warna link utama di navbar */
-  --nav-hover-color: #58a6ff; /* Hover biru terang */
-  --nav-mobile-background-color: #0d1117; /* Background nav mobile tetap hitam */
-  --nav-dropdown-background-color: #1f6feb; /* Dropdown background biru */
-  --nav-dropdown-color: #e6edf3; /* Teks dropdown */
-  --nav-dropdown-hover-color: #ffffff; /* Hover putih terang */
+  --nav-color: #93c5fd; /* Warna link utama di navbar */
+  --nav-hover-color: var(--accent-color); /* Hover Deep Violet */
+  --nav-mobile-background-color: #000000; /* Background nav mobile tetap hitam */
+  --nav-dropdown-background-color: var(--surface-color); /* Dropdown background Surface Color */
+  --nav-dropdown-color: #ffffff; /* Teks dropdown putih */
+  --nav-dropdown-hover-color: var(--heading-color); /* Hover biru terang */
 }
 
 /* custom teks about */
@@ -44,11 +46,11 @@
   color: var(--default-color);
 }
 
-/* Preset Background Tambahan */
+/* Preset Background Tambahan - Diubah agar sesuai dengan tema gelap */
 /* Styling untuk section contact dengan background terang */
 .contact.section {
-  background-color: #f9f9f9;
-  color: #222;
+  background-color: var(--surface-color); /* Menggunakan surface-color */
+  color: #ffffff;
 }
 
 /* Supaya heading, paragraf, input, dan textarea tetap terlihat jelas */
@@ -56,19 +58,15 @@
 .contact.section input,
 .contact.section textarea,
 .contact.section label {
-  color: #222;
+  color: #ffffff;
 }
 
-
-
-
-
 .dark-background {
-  --background-color: #0d1117;
-  --default-color: #e6edf3;
-  --heading-color: #58a6ff;
-  --accent-color: #1f6feb;
-  --surface-color: #161b22;
+  --background-color: #000000;
+  --default-color: #ffffff;
+  --heading-color: #60A5FA;
+  --accent-color: #6D28D9;
+  --surface-color: #0D071F;
   --contrast-color: #ffffff;
 }
 
@@ -164,7 +162,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(255, 255, 255, 0);
+  --background-color: rgba(0, 0, 0, 0);
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 15px 0;
@@ -553,11 +551,30 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../img/bg/realistic-neon-lights-background_23-2148907367.webp") no-repeat center center;
-  background-size: cover;
-  opacity: 0.20;
+  /* MENGGANTI BACKGROUND GAMBAR DENGAN GRADIENT BLUR ELEGANT */
+  /* Gradient Blur: Deep Violet (kiri atas) ke Deep Royal Blue (kanan bawah) di atas Hitam */
+  background: radial-gradient(at 10% 10%, var(--accent-color) 0%, transparent 40%),
+              radial-gradient(at 90% 80%, var(--secondary-accent-color) 0%, transparent 40%);
+  filter: blur(100px); /* Tambahkan blur yang lebih kuat untuk efek glow/gelombang yang halus */
+  opacity: 0.6; /* Tingkatkan sedikit opacity */
   z-index: 1;
 }
+
+/* Tambahan dekorasi dot effect yang lebih halus */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Menggunakan dot pattern dengan warna heading dan accent yang baru */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='40' height='40' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(30)'%3E%3Cg opacity='0.5'%3E%3Ccircle cx='10' cy='10' r='1' fill='%2360A5FA'/%3E%3Ccircle cx='30' cy='30' r='1' fill='%236D28D9'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  opacity: 0.08; /* Sedikit lebih terlihat */
+  z-index: 1;
+  pointer-events: none;
+}
+
 
 .hero .container {
   position: relative;
@@ -649,7 +666,7 @@ section,
 .hero .hero-stats .stat-item .purecounter {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
   line-height: 1;
 }
 
@@ -687,27 +704,49 @@ section,
   transition: all 0.3s ease;
 }
 
+/* Modifikasi Tombol Utama untuk Gradien */
 .hero .hero-actions .btn.btn-primary {
-  background-color: var(--accent-color);
+  /* Menggunakan Gradien dari Deep Violet ke Royal Blue */
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
   color: var(--contrast-color);
-  border: 2px solid var(--accent-color);
+  border: none; /* Hapus border solid */
+  transition: all 0.5s ease;
+  background-size: 200% 100%;
+  background-position: 100% 0;
 }
 
 .hero .hero-actions .btn.btn-primary:hover {
+  /* Efek hover: geser posisi gradien */
+  background-position: 0 0;
+  background-color: transparent; /* Pastikan tidak kembali ke warna solid */
+  color: var(--contrast-color); /* Tetap putih */
+}
+
+/* Terapkan juga pada tombol CTA di About Section dan Portfolio Details */
+.about .about-content .cta-section .action-buttons .btn.btn-primary,
+.portfolio-details .portfolio-details-content .cta-buttons .btn-view-project {
+  /* Menggunakan Gradien dari Deep Violet ke Royal Blue */
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
+  border: none;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+.about .about-content .cta-section .action-buttons .btn.btn-primary:hover,
+.portfolio-details .portfolio-details-content .cta-buttons .btn-view-project:hover {
+  background-position: 0 0;
   background-color: transparent;
-  color: var(--accent-color);
 }
 
 .hero .hero-actions .btn.btn-outline {
   background-color: transparent;
-  color: var(--default-color);
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  color: var(--heading-color); /* Ubah ke heading color */
+  border: 2px solid var(--heading-color);
 }
 
 .hero .hero-actions .btn.btn-outline:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border-color: var(--accent-color);
+  background-color: var(--heading-color);
+  color: var(--background-color);
+  border-color: var(--heading-color);
 }
 
 .hero .social-links {
@@ -779,7 +818,8 @@ section,
   left: 20px;
   right: -20px;
   bottom: -20px;
-  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 30%));
+  /* Gradien yang lebih tegas untuk overlay gambar */
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent-color));
   border-radius: 20px;
   z-index: 1;
 }
@@ -970,9 +1010,9 @@ section,
 .about .about-content .skills-grid .skill-item {
   text-align: center;
   padding: 20px;
-  border-radius: 10px;
   background: color-mix(in srgb, var(--accent-color), transparent 94%);
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  border-radius: 10px; /* Tambahkan border-radius untuk konsistensi */
   transition: all 0.3s ease;
 }
 
@@ -1032,7 +1072,7 @@ section,
 
 .about .about-content .journey-timeline .timeline-item .year {
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
   font-size: 18px;
   min-width: 80px;
   margin-right: 20px;
@@ -1121,13 +1161,13 @@ section,
 
 .about .about-content .cta-section .action-buttons .btn.btn-outline {
   background: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
+  border: 2px solid var(--heading-color);
 }
 
 .about .about-content .cta-section .action-buttons .btn.btn-outline:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  background: var(--heading-color);
+  color: var(--background-color);
   transform: translateY(-2px);
 }
 
@@ -1141,7 +1181,8 @@ section,
 # Skills Section
 --------------------------------------------------------------*/
 .skills .skills-grid .skill-card {
-  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
+  /* Gradien Surface (Ungu-Hitam) ke Accent Color */
+  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 15%) 100%);
   border-radius: 15px;
   padding: 30px;
   height: 100%;
@@ -1158,7 +1199,8 @@ section,
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 30%));
+  /* Gradien Ungu Gelap ke Biru Gelap */
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
 }
 
 .skills .skills-grid .skill-card:hover {
@@ -1216,7 +1258,7 @@ section,
 .skills .skills-grid .skill-card .skill-item .skill-info .skill-percentage {
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
 }
 
 .skills .skills-grid .skill-card .skill-item .skill-bar {
@@ -1229,7 +1271,8 @@ section,
 
 .skills .skills-grid .skill-card .skill-item .skill-bar .progress-bar {
   height: 100%;
-  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+  /* Gradien Ungu Gelap ke Biru Gelap */
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent-color));
   border-radius: 10px;
   width: 0;
   transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1288,7 +1331,8 @@ section,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 30%));
+  /* Gradien Ungu Gelap ke Biru Gelap */
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent-color));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1326,7 +1370,8 @@ section,
 }
 
 .skills .skills-summary .skills-badges .badge-list .skill-badge {
-  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+  /* Gradien Ungu Gelap ke Biru Gelap */
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent-color));
   color: var(--contrast-color);
   padding: 8px 16px;
   border-radius: 20px;
@@ -1404,7 +1449,7 @@ section,
 }
 
 .resume .section-header h2 i {
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
   font-size: 1.5rem;
 }
 
@@ -1436,7 +1481,8 @@ section,
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 30%));
+  /* Gradien Ungu Gelap ke Biru Gelap */
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent-color));
 }
 
 .resume .experience-section .experience-cards .experience-card:hover {
@@ -1459,7 +1505,7 @@ section,
 }
 
 .resume .experience-section .experience-cards .experience-card .card-header .role-info h4 {
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
@@ -1467,7 +1513,7 @@ section,
 
 .resume .experience-section .experience-cards .experience-card .card-header .duration {
   background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -1500,7 +1546,7 @@ section,
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   font-weight: bold;
 }
 
@@ -1522,7 +1568,8 @@ section,
   top: 2rem;
   bottom: 2rem;
   width: 2px;
-  background: linear-gradient(to bottom, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 70%));
+  /* Gradien Ungu Gelap ke Biru Gelap */
+  background: linear-gradient(to bottom, var(--accent-color), color-mix(in srgb, var(--secondary-accent-color), transparent 70%));
 }
 
 .resume .education-section .education-timeline .education-item {
@@ -1585,7 +1632,7 @@ section,
 }
 
 .resume .education-section .education-timeline .education-item .education-content .institution {
-  color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: color-mix(in srgb, var(--heading-color), transparent 20%); /* Ubah ke heading color */
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.8rem;
@@ -1692,7 +1739,7 @@ section,
 
 .services .service-item:hover .icon i {
   transform: scale(1.1) rotate(5deg);
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
 }
 
 .services .service-item:hover .link-item i {
@@ -1704,8 +1751,9 @@ section,
 }
 
 .services .service-item .icon i {
+  /* Diperbarui untuk menggunakan warna heading/accent */
   font-size: 2.5rem;
-  color: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: color-mix(in srgb, var(--heading-color), transparent 15%);
   transition: all 0.3s ease-in-out;
 }
 
@@ -1731,7 +1779,7 @@ section,
 .services .service-item .card-links .link-item {
   display: inline-flex;
   align-items: center;
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.3s ease;
@@ -1744,7 +1792,7 @@ section,
 }
 
 .services .service-item .card-links .link-item:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: color-mix(in srgb, var(--heading-color), transparent 25%);
 }
 
 @media (max-width: 991px) {
@@ -1812,9 +1860,9 @@ section,
 }
 
 .portfolio .portfolio-filters li:hover {
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   transform: translateY(-2px);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  background: color-mix(in srgb, var(--heading-color), transparent 92%);
 }
 
 .portfolio .portfolio-filters li:hover i {
@@ -1822,8 +1870,8 @@ section,
 }
 
 .portfolio .portfolio-filters li.filter-active {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  background: var(--heading-color); /* Ubah ke heading color */
+  color: var(--background-color); /* Kontras dengan latar belakang */
 }
 
 @media (max-width: 768px) {
@@ -1878,7 +1926,7 @@ section,
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-meta {
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -1905,7 +1953,7 @@ section,
   align-items: center;
   justify-content: center;
   background: var(--surface-color);
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   border-radius: 12px;
   font-size: 20px;
   transition: all 0.3s ease;
@@ -1914,8 +1962,8 @@ section,
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  background: var(--heading-color); /* Ubah ke heading color */
+  color: var(--background-color);
   transform: translateY(-2px);
 }
 
@@ -2158,9 +2206,7 @@ section,
 }
 
 .testimonials .testimonials-container .swiper-pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  color: color-mix(in srgb, var(--accent-color), transparent 70%);
   opacity: 1;
 }
 
@@ -2211,8 +2257,8 @@ section,
 
 .testimonials .overall-rating .rating-platforms span {
   font-size: 14px;
-  color: var(--accent-color);
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--heading-color); /* Ubah ke heading color */
+  background-color: color-mix(in srgb, var(--heading-color), transparent 90%);
   padding: 5px 15px;
   border-radius: 20px;
 }
@@ -2287,12 +2333,12 @@ section,
 }
 
 .faq .faq-container .faq-item h3 .num {
-  color: var(--accent-color);
+  color: var(--heading-color); /* Ubah ke heading color */
   padding-right: 5px;
 }
 
 .faq .faq-container .faq-item h3:hover {
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .faq .faq-container .faq-item .faq-content {
@@ -2319,7 +2365,7 @@ section,
 }
 
 .faq .faq-container .faq-item .faq-toggle:hover {
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .faq .faq-container .faq-active {
@@ -2328,7 +2374,7 @@ section,
 }
 
 .faq .faq-container .faq-active h3 {
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .faq .faq-container .faq-active .faq-content {
@@ -2340,7 +2386,7 @@ section,
 
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 /*--------------------------------------------------------------
@@ -2609,8 +2655,8 @@ section,
 .portfolio-details .portfolio-details-content .project-meta .badge-wrapper .project-badge {
   display: inline-block;
   padding: 8px 16px;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--heading-color), transparent 90%);
+  color: var(--heading-color);
   border-radius: 30px;
   font-weight: 600;
   font-size: 14px;
@@ -2630,7 +2676,7 @@ section,
 
 .portfolio-details .portfolio-details-content .project-meta .date-client .meta-item i {
   margin-right: 6px;
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .portfolio-details .portfolio-details-content .project-title {
@@ -2649,7 +2695,7 @@ section,
 
 .portfolio-details .portfolio-details-content .project-website i {
   font-size: 22px;
-  color: var(--accent-color);
+  color: var(--heading-color);
   margin-right: 8px;
 }
 
@@ -2691,14 +2737,14 @@ section,
 
 .portfolio-details .portfolio-details-content .project-overview .project-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
   background-color: var(--surface-color);
-  color: var(--accent-color);
+  color: var(--heading-color);
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 .portfolio-details .portfolio-details-content .project-overview .project-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) i {
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .portfolio-details .portfolio-details-content .project-overview .project-accordion .accordion-item .accordion-header .accordion-button::after {
@@ -2737,7 +2783,7 @@ section,
 
 .portfolio-details .portfolio-details-content .project-features h3 i {
   margin-right: 10px;
-  color: var(--accent-color);
+  color: var(--heading-color);
   font-size: 1.1em;
 }
 
@@ -2755,7 +2801,7 @@ section,
 }
 
 .portfolio-details .portfolio-details-content .project-features .feature-list li i {
-  color: var(--accent-color);
+  color: var(--heading-color);
   margin-right: 10px;
   font-size: 1.1em;
 }
@@ -2861,11 +2907,8 @@ section,
 }
 
 .service-details .service-hero .service-badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  background: var(--heading-color);
+  color: var(--background-color);
   padding: 8px 20px;
   border-radius: 25px;
   font-size: 14px;
@@ -2929,7 +2972,7 @@ section,
 
 .service-details .service-features .feature-item .feature-icon i {
   font-size: 24px;
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .service-details .service-features .feature-item .feature-content h5 {
@@ -2966,8 +3009,8 @@ section,
 }
 
 .service-details .service-process .process-steps .process-step .step-number {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  background: var(--heading-color); /* Ubah ke heading color */
+  color: var(--background-color);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -3037,13 +3080,13 @@ section,
 
 .service-details .service-sidebar .service-menu .menu-list .menu-item:hover,
 .service-details .service-sidebar .service-menu .menu-list .menu-item.active {
-  color: var(--accent-color);
+  color: var(--heading-color);
   padding-left: 10px;
 }
 
 .service-details .service-sidebar .service-menu .menu-list .menu-item:hover i,
 .service-details .service-sidebar .service-menu .menu-list .menu-item.active i {
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .service-details .service-sidebar .service-menu .menu-list .menu-item i {
@@ -3091,11 +3134,12 @@ section,
 
 .service-details .service-sidebar .service-info .info-list .info-item .info-value {
   font-weight: 600;
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
 
 .service-details .service-sidebar .contact-card {
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #000 20%));
+  /* Gradien Ungu Gelap ke Biru Gelap (digunakan untuk Contact Card) */
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent-color));
   padding: 30px;
   border-radius: 10px;
   color: var(--contrast-color);
