@@ -22,23 +22,36 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 /* --- MODIFIED FOR DEEP VIOLET/ROYAL BLUE ELEGANT SCHEME --- */
 :root {
-  --background-color: #000000; /* Hitam pekat full untuk latar belakang utama */
-  --default-color: #ffffff; /* Teks utama, putih */
-  --heading-color: #006aff; /* Biru muda/Cyan terang untuk judul (High Contrast) */
-  --accent-color: #6200ff; /* Ungu Gelap / Deep Violet yang kuat untuk aksen utama */
-  --secondary-accent-color: #1E40AF; /* Biru Gelap / Royal Blue yang kaya untuk gradien/highlight */
-  --surface-color: #0D071F; /* Permukaan komponen (cards/box), ungu gelap sinematik */
-  --contrast-color: #ffffff; /* Kontras tinggi untuk teks di atas warna aksen atau gelap */
+  --background-color: #000000;
+  /* Hitam pekat full untuk latar belakang utama */
+  --default-color: #ffffff;
+  /* Teks utama, putih */
+  --heading-color: #006aff;
+  /* Biru muda/Cyan terang untuk judul (High Contrast) */
+  --accent-color: #6200ff;
+  /* Ungu Gelap / Deep Violet yang kuat untuk aksen utama */
+  --secondary-accent-color: #1E40AF;
+  /* Biru Gelap / Royal Blue yang kaya untuk gradien/highlight */
+  --surface-color: #0D071F;
+  /* Permukaan komponen (cards/box), ungu gelap sinematik */
+  --contrast-color: #ffffff;
+  /* Kontras tinggi untuk teks di atas warna aksen atau gelap */
 }
 
 /* Warna khusus untuk menu navigasi */
 :root {
-  --nav-color: #93c5fd; /* Warna link utama di navbar */
-  --nav-hover-color: var(--accent-color); /* Hover Deep Violet */
-  --nav-mobile-background-color: #000000; /* Background nav mobile tetap hitam */
-  --nav-dropdown-background-color: var(--surface-color); /* Dropdown background Surface Color */
-  --nav-dropdown-color: #ffffff; /* Teks dropdown putih */
-  --nav-dropdown-hover-color: var(--heading-color); /* Hover biru terang */
+  --nav-color: #93c5fd;
+  /* Warna link utama di navbar */
+  --nav-hover-color: var(--accent-color);
+  /* Hover Deep Violet */
+  --nav-mobile-background-color: #000000;
+  /* Background nav mobile tetap hitam */
+  --nav-dropdown-background-color: var(--surface-color);
+  /* Dropdown background Surface Color */
+  --nav-dropdown-color: #ffffff;
+  /* Teks dropdown putih */
+  --nav-dropdown-hover-color: var(--heading-color);
+  /* Hover biru terang */
 }
 
 /* custom teks about */
@@ -49,7 +62,8 @@
 /* Preset Background Tambahan - Diubah agar sesuai dengan tema gelap */
 /* Styling untuk section contact dengan background terang */
 .contact.section {
-  background-color: var(--surface-color); /* Menggunakan surface-color */
+  background-color: var(--surface-color);
+  /* Menggunakan surface-color */
   color: #ffffff;
 }
 
@@ -83,34 +97,32 @@
 --------------------------------------------------------------*/
 body {
   /* Background gradien */
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 10%,
       var(--accent-color) 0%,
       rgba(98, 0, 255, 0.05) 30%,
-      transparent 80%
-    ),
+      transparent 80%),
     radial-gradient(circle at 90% 90%,
       var(--secondary-accent-color) 0%,
       rgba(30, 64, 175, 0.08) 30%,
-      transparent 80%
-    ),
+      transparent 80%),
     radial-gradient(circle at 10% 10%,
       var(--accent-color) 0%,
       rgba(98, 0, 255, 0.05) 30%,
-      transparent 80%
-    ),
+      transparent 80%),
     radial-gradient(circle at 90% 90%,
       var(--secondary-accent-color) 0%,
       rgba(30, 64, 175, 0.08) 30%,
-      transparent 80%
-    );
+      transparent 80%);
 
   background-repeat: no-repeat;
-  background-size: 100% 300%, 100% 300%;   /* 👉 Menjaga background menutupi seluruh tinggi konten */
+  background-size: 100% 300%, 100% 300%;
+  /* 👉 Menjaga background menutupi seluruh tinggi konten */
   min-height: 100%;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -218,20 +230,50 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* Navmenu */
-.mobile-nav-toggle {
-  color: var(--nav-color);
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 32px;
-  line-height: 0;
-  cursor: pointer;
-  display: block !important;
-  z-index: 998;
+/* ============================= */
+/* MOBILE NAV (default) */
+/* ============================= */
+/* ===================================== */
+/* HEADER BASE */
+/* ===================================== */
+
+#header {
   transition: 0.3s;
 }
 
+
+/* ===================================== */
+/* MOBILE NAV (DEFAULT) */
+/* ===================================== */
+
+.mobile-nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+
+  /* 🔥 Glass effect */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+  transition: all 0.3s ease;
+}
 .mobile-nav-toggle:hover {
   color: var(--nav-hover-color);
 }
@@ -241,155 +283,121 @@ h6 {
   top: 0;
   bottom: 0;
   right: -300px;
-  z-index: 997;
-  transition: 0.3s;
+  /* hidden */
   width: 300px;
-  overflow: hidden;
-}
-
-.navmenu .profile-img img {
-  margin: 15px auto;
-  display: block;
-  width: 160px;
-  border: 8px solid color-mix(in srgb, var(--contrast-color), transparent 85%);
-}
-
-.navmenu .logo {
-  line-height: 1;
-  margin-bottom: 15px;
-}
-
-.navmenu .logo img {
-  max-height: 32px;
-  margin-right: 8px;
-}
-
-.navmenu .logo h1 {
-  font-size: 24px;
-  margin: 0;
-  font-weight: 700;
-  color: var(--contrast-color);
-}
-
-.navmenu .social-links {
-  margin: 0 0 20px 0;
-}
-
-.navmenu .social-links a {
-  font-size: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background: color-mix(in srgb, var(--contrast-color), transparent 90%);
-  color: var(--contrast-color);
-  margin: 0 2px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  transition: 0.3s;
-}
-
-.navmenu .social-links a i {
-  margin: 0;
-}
-
-.navmenu .social-links a:hover {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-}
-
-.navmenu ul {
-  display: block;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
+  background: var(--nav-mobile-background-color);
+  transition: right 0.3s ease;
+  z-index: 999;
   overflow-y: auto;
-  transition: 0.3s;
-  z-index: 998;
+  padding-top: 60px;
 }
 
-.navmenu a,
-.navmenu a:focus {
-  color: var(--nav-dropdown-color);
-  padding: 10px 20px;
-  font-family: var(--nav-font);
-  font-size: 17px;
-  font-weight: 500;
+/* logo fix */
+.navmenu .logo h1 {
+  margin: 0;
+  line-height: 1;
+  font-size: 24px;
+}
+
+/* menu list */
+.navmenu ul {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.navmenu li {
+  margin: 12px 0;
+}
+
+.navmenu a {
+  padding: 12px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  white-space: nowrap;
-  transition: 0.3s;
+  text-decoration: none;
 }
 
-.navmenu a i,
-.navmenu a:focus i {
-  font-size: 12px;
-  line-height: 0;
-  margin-left: 5px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: 0.3s;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.navmenu a i:hover,
-.navmenu a:focus i:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.navmenu a:hover,
-.navmenu .active,
-.navmenu .active:focus {
-  color: var(--nav-dropdown-hover-color);
-}
-
-.navmenu .active i,
-.navmenu .active:focus i {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: rotate(180deg);
-}
-
-.navmenu .dropdown ul {
-  position: static;
-  display: none;
-  z-index: 99;
-  padding: 10px 0;
-  margin: 10px 20px;
-  box-shadow: none;
-  transition: all 0.5s ease-in-out;
-}
-
-.navmenu .dropdown>.dropdown-active {
-  display: block;
-  background-color: var(--nav-dropdown-background-color);
-  border: 1px solid color-mix(in srgb, var(--nav-dropdown-color), transparent 90%);
-}
-
+/* active drawer */
 .mobile-nav-active {
   overflow: hidden;
 }
 
-.mobile-nav-active .mobile-nav-toggle {
-  right: 310px;
-  font-size: 36px;
+.mobile-nav-active .navmenu {
+  right: 0;
 }
 
-.mobile-nav-active .navmenu {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background-color: var(--nav-mobile-background-color);
-  transition: 0.3s;
+.mobile-nav-active .mobile-nav-toggle {
+  right: 310px;
+}
+
+
+/* ===================================== */
+/* DESKTOP NAV (GLASS FLOATING) */
+/* ===================================== */
+
+@media (min-width: 1200px) {
+
+  /* header tidak mepet atas */
+  #header {
+    top: 20px;
+    left: 0;
+    right: 0;
+    background: transparent;
+  }
+
+  /* container dibatasi dan center */
+  #header .container-fluid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+
+  /* nav jadi floating glass */
+  .navmenu {
+    position: static;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: none;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    overflow: visible;
+  }
+
+  .navmenu .logo {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .navmenu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navmenu li {
+    margin: 0 18px;
+  }
+
+  /* hide mobile-only parts */
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+
+  .navmenu .profile-img,
+  .navmenu .social-links {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -583,9 +591,11 @@ section,
   /* MENGGANTI BACKGROUND GAMBAR DENGAN GRADIENT BLUR ELEGANT */
   /* Gradient Blur: Deep Violet (kiri atas) ke Deep Royal Blue (kanan bawah) di atas Hitam */
   background: radial-gradient(at 10% 10%, var(--accent-color) 0%, transparent 40%),
-              radial-gradient(at 90% 80%, var(--secondary-accent-color) 0%, transparent 40%);
-  filter: blur(100px); /* Tambahkan blur yang lebih kuat untuk efek glow/gelombang yang halus */
-  opacity: 0.6; /* Tingkatkan sedikit opacity */
+    radial-gradient(at 90% 80%, var(--secondary-accent-color) 0%, transparent 40%);
+  filter: blur(100px);
+  /* Tambahkan blur yang lebih kuat untuk efek glow/gelombang yang halus */
+  opacity: 0.6;
+  /* Tingkatkan sedikit opacity */
   z-index: 1;
 }
 
@@ -599,7 +609,8 @@ section,
   bottom: 0;
   /* Menggunakan dot pattern dengan warna heading dan accent yang baru */
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='40' height='40' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(30)'%3E%3Cg opacity='0.5'%3E%3Ccircle cx='10' cy='10' r='1' fill='%2360A5FA'/%3E%3Ccircle cx='30' cy='30' r='1' fill='%236D28D9'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' width='100%25' height='100%25'/%3E%3C/svg%3E");
-  opacity: 0.08; /* Sedikit lebih terlihat */
+  opacity: 0.08;
+  /* Sedikit lebih terlihat */
   z-index: 1;
   pointer-events: none;
 }
@@ -695,7 +706,8 @@ section,
 .hero .hero-stats .stat-item .purecounter {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
+  color: var(--heading-color);
+  /* Ubah ke heading color agar lebih menyala */
   line-height: 1;
 }
 
@@ -738,7 +750,8 @@ section,
   /* Menggunakan Gradien dari Deep Violet ke Royal Blue */
   background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
   color: var(--contrast-color);
-  border: none; /* Hapus border solid */
+  border: none;
+  /* Hapus border solid */
   transition: all 0.5s ease;
   background-size: 200% 100%;
   background-position: 100% 0;
@@ -747,8 +760,10 @@ section,
 .hero .hero-actions .btn.btn-primary:hover {
   /* Efek hover: geser posisi gradien */
   background-position: 0 0;
-  background-color: transparent; /* Pastikan tidak kembali ke warna solid */
-  color: var(--contrast-color); /* Tetap putih */
+  background-color: transparent;
+  /* Pastikan tidak kembali ke warna solid */
+  color: var(--contrast-color);
+  /* Tetap putih */
 }
 
 /* Terapkan juga pada tombol CTA di About Section dan Portfolio Details */
@@ -760,6 +775,7 @@ section,
   background-size: 200% 100%;
   background-position: 100% 0;
 }
+
 .about .about-content .cta-section .action-buttons .btn.btn-primary:hover,
 .portfolio-details .portfolio-details-content .cta-buttons .btn-view-project:hover {
   background-position: 0 0;
@@ -768,7 +784,8 @@ section,
 
 .hero .hero-actions .btn.btn-outline {
   background-color: transparent;
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   border: 2px solid var(--heading-color);
 }
 
@@ -1041,7 +1058,8 @@ section,
   padding: 20px;
   background: color-mix(in srgb, var(--accent-color), transparent 94%);
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
-  border-radius: 10px; /* Tambahkan border-radius untuk konsistensi */
+  border-radius: 10px;
+  /* Tambahkan border-radius untuk konsistensi */
   transition: all 0.3s ease;
 }
 
@@ -1101,7 +1119,8 @@ section,
 
 .about .about-content .journey-timeline .timeline-item .year {
   font-weight: 700;
-  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
+  color: var(--heading-color);
+  /* Ubah ke heading color agar lebih menyala */
   font-size: 18px;
   min-width: 80px;
   margin-right: 20px;
@@ -1190,7 +1209,8 @@ section,
 
 .about .about-content .cta-section .action-buttons .btn.btn-outline {
   background: transparent;
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   border: 2px solid var(--heading-color);
 }
 
@@ -1287,7 +1307,8 @@ section,
 .skills .skills-grid .skill-card .skill-item .skill-info .skill-percentage {
   font-size: 14px;
   font-weight: 700;
-  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
+  color: var(--heading-color);
+  /* Ubah ke heading color agar lebih menyala */
 }
 
 .skills .skills-grid .skill-card .skill-item .skill-bar {
@@ -1478,7 +1499,8 @@ section,
 }
 
 .resume .section-header h2 i {
-  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
+  color: var(--heading-color);
+  /* Ubah ke heading color agar lebih menyala */
   font-size: 1.5rem;
 }
 
@@ -1534,7 +1556,8 @@ section,
 }
 
 .resume .experience-section .experience-cards .experience-card .card-header .role-info h4 {
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
@@ -1542,7 +1565,8 @@ section,
 
 .resume .experience-section .experience-cards .experience-card .card-header .duration {
   background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -1575,7 +1599,8 @@ section,
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   font-weight: bold;
 }
 
@@ -1661,7 +1686,8 @@ section,
 }
 
 .resume .education-section .education-timeline .education-item .education-content .institution {
-  color: color-mix(in srgb, var(--heading-color), transparent 20%); /* Ubah ke heading color */
+  color: color-mix(in srgb, var(--heading-color), transparent 20%);
+  /* Ubah ke heading color */
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.8rem;
@@ -1768,7 +1794,8 @@ section,
 
 .services .service-item:hover .icon i {
   transform: scale(1.1) rotate(5deg);
-  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
+  color: var(--heading-color);
+  /* Ubah ke heading color agar lebih menyala */
 }
 
 .services .service-item:hover .link-item i {
@@ -1808,7 +1835,8 @@ section,
 .services .service-item .card-links .link-item {
   display: inline-flex;
   align-items: center;
-  color: var(--heading-color); /* Ubah ke heading color agar lebih menyala */
+  color: var(--heading-color);
+  /* Ubah ke heading color agar lebih menyala */
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.3s ease;
@@ -1889,7 +1917,8 @@ section,
 }
 
 .portfolio .portfolio-filters li:hover {
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   transform: translateY(-2px);
   background: color-mix(in srgb, var(--heading-color), transparent 92%);
 }
@@ -1899,8 +1928,10 @@ section,
 }
 
 .portfolio .portfolio-filters li.filter-active {
-  background: var(--heading-color); /* Ubah ke heading color */
-  color: var(--background-color); /* Kontras dengan latar belakang */
+  background: var(--heading-color);
+  /* Ubah ke heading color */
+  color: var(--background-color);
+  /* Kontras dengan latar belakang */
 }
 
 @media (max-width: 768px) {
@@ -1955,7 +1986,8 @@ section,
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-meta {
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -1982,7 +2014,8 @@ section,
   align-items: center;
   justify-content: center;
   background: var(--surface-color);
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   border-radius: 12px;
   font-size: 20px;
   transition: all 0.3s ease;
@@ -1991,7 +2024,8 @@ section,
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a:hover {
-  background: var(--heading-color); /* Ubah ke heading color */
+  background: var(--heading-color);
+  /* Ubah ke heading color */
   color: var(--background-color);
   transform: translateY(-2px);
 }
@@ -2286,7 +2320,8 @@ section,
 
 .testimonials .overall-rating .rating-platforms span {
   font-size: 14px;
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   background-color: color-mix(in srgb, var(--heading-color), transparent 90%);
   padding: 5px 15px;
   border-radius: 20px;
@@ -2362,7 +2397,8 @@ section,
 }
 
 .faq .faq-container .faq-item h3 .num {
-  color: var(--heading-color); /* Ubah ke heading color */
+  color: var(--heading-color);
+  /* Ubah ke heading color */
   padding-right: 5px;
 }
 
@@ -3038,7 +3074,8 @@ section,
 }
 
 .service-details .service-process .process-steps .process-step .step-number {
-  background: var(--heading-color); /* Ubah ke heading color */
+  background: var(--heading-color);
+  /* Ubah ke heading color */
   color: var(--background-color);
   width: 50px;
   height: 50px;
@@ -3262,7 +3299,7 @@ section,
 --------------------------------------------------------------*/
 /* .starter-section {
   /* Add your styles here */
-/* } */ 
+/* } */
 
 .d-block {
   display: block !important;
