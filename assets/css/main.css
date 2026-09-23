@@ -3579,6 +3579,42 @@ section,
   transition-delay: 0.3s;
 }
 
+/* Whole card is clickable ------------------------------------ */
+.portfolio .portfolio-entry.is-clickable {
+  cursor: pointer;
+}
+
+.portfolio .portfolio-entry.is-clickable:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Transparent link layer covering the whole card */
+.portfolio .portfolio-entry .card-hit-area {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 16px;
+}
+
+.portfolio .portfolio-entry .card-hit-area:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Overlay passes clicks through to the hit area, except its own
+   links (lightbox / GitHub / details / title) */
+.portfolio .portfolio-entry .entry-image .entry-overlay {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a,
+.portfolio .portfolio-entry .entry-image .entry-overlay .entry-title a {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
 /* Responsive --------------------------------------------------- */
 @media (max-width: 991.98px) {
   .pd-info-row {
