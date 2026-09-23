@@ -104,6 +104,7 @@
    */
   document.addEventListener("DOMContentLoaded", function () {
     const typedElement = document.querySelector('.typed');
+    if (!typedElement) return; // Pages without a typed heading (e.g. project-detail.html)
     const typedItems = typedElement.getAttribute('data-typed-items').split(',');
 
     let typedInstance = null;
@@ -164,7 +165,7 @@
   /**
    * Init isotope layout and filters
    */
-  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
+document.querySelectorAll('.isotope-layout, #projects, #writing').forEach(function (isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';

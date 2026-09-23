@@ -20,38 +20,38 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-/* --- MODIFIED FOR DEEP VIOLET/ROYAL BLUE ELEGANT SCHEME --- */
+/* --- MODIFIED FOR LIGHT BLUE THEME --- */
 :root {
-  --background-color: #000000;
-  /* Hitam pekat full untuk latar belakang utama */
-  --default-color: #ffffff;
-  /* Teks utama, putih */
-  --heading-color: #006aff;
-  /* Biru muda/Cyan terang untuk judul (High Contrast) */
-  --accent-color: #6200ff;
-  /* Ungu Gelap / Deep Violet yang kuat untuk aksen utama */
-  --secondary-accent-color: #1E40AF;
-  /* Biru Gelap / Royal Blue yang kaya untuk gradien/highlight */
-  --surface-color: #0D071F;
-  /* Permukaan komponen (cards/box), ungu gelap sinematik */
+  --background-color: #f8fafc;
+  /* Light slate BG */
+  --default-color: #1e293b;
+  /* Dark slate text */
+  --heading-color: #1e40af;
+  /* Dark blue headings */
+  --accent-color: #3b82f6;
+  /* Primary blue */
+  --secondary-accent-color: #1d4ed8;
+  /* Secondary blue */
+  --surface-color: #ffffff;
+  /* White cards */
   --contrast-color: #ffffff;
-  /* Kontras tinggi untuk teks di atas warna aksen atau gelap */
+  /* Text on accents */
 }
 
 /* Warna khusus untuk menu navigasi */
 :root {
-  --nav-color: #93c5fd;
-  /* Warna link utama di navbar */
+  --nav-color: #60a5fa;
+  /* Light blue nav links */
   --nav-hover-color: var(--accent-color);
-  /* Hover Deep Violet */
-  --nav-mobile-background-color: #000000;
-  /* Background nav mobile tetap hitam */
+  /* Hover primary blue */
+  --nav-mobile-background-color: #f1f5f9;
+  /* Light slate mobile nav */
   --nav-dropdown-background-color: var(--surface-color);
-  /* Dropdown background Surface Color */
-  --nav-dropdown-color: #ffffff;
-  /* Teks dropdown putih */
+  /* White dropdown */
+  --nav-dropdown-color: #1e293b;
+  /* Dark text */
   --nav-dropdown-hover-color: var(--heading-color);
-  /* Hover biru terang */
+  /* Hover dark blue */
 }
 
 /* custom teks about */
@@ -76,11 +76,11 @@
 }
 
 .dark-background {
-  --background-color: #000000;
-  --default-color: #ffffff;
-  --heading-color: #60A5FA;
-  --accent-color: #6D28D9;
-  --surface-color: #0D071F;
+  --background-color: #f8fafc;
+  --default-color: #1e293b;
+  --heading-color: #1e40af;
+  --accent-color: #3b82f6;
+  --surface-color: #ffffff;
   --contrast-color: #ffffff;
 }
 
@@ -100,20 +100,21 @@ body {
   background-image:
     radial-gradient(circle at 10% 10%,
       var(--accent-color) 0%,
-      rgba(98, 0, 255, 0.05) 30%,
+      rgba(59, 130, 246, 0.1) 30%,
       transparent 80%),
     radial-gradient(circle at 90% 90%,
       var(--secondary-accent-color) 0%,
-      rgba(30, 64, 175, 0.08) 30%,
+      rgba(29, 78, 216, 0.1) 30%,
       transparent 80%),
     radial-gradient(circle at 10% 10%,
       var(--accent-color) 0%,
-      rgba(98, 0, 255, 0.05) 30%,
+      rgba(59, 130, 246, 0.05) 30%,
       transparent 80%),
     radial-gradient(circle at 90% 90%,
       var(--secondary-accent-color) 0%,
-      rgba(30, 64, 175, 0.08) 30%,
+      rgba(29, 78, 216, 0.05) 30%,
       transparent 80%);
+
 
   background-repeat: no-repeat;
   background-size: 100% 300%, 100% 300%;
@@ -493,7 +494,8 @@ h6 {
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 25px 0;
+  /* Offset for the fixed header (glass nav pill) so the title is never hidden behind it */
+  padding: 130px 0 25px;
   position: relative;
 }
 
@@ -1485,6 +1487,31 @@ section,
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tech-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  transition: all 0.2s ease;
+}
+
+.tech-pill:hover {
+   background: linear-gradient(115deg, #4f46e5, #06b6d4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 .resume .section-header {
   margin-bottom: 2.5rem;
 }
@@ -1887,15 +1914,7 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-.portfolio .portfolio-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 0;
-  margin: 0 0 40px;
-  list-style: none;
-}
+.portfolio .portfolio-filters,\n#projects .portfolio-filters,\n#writing .portfolio-filters {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 15px;\n  padding: 0;\n  margin: 0 0 40px;\n  list-style: none;\n}
 
 .portfolio .portfolio-filters li {
   font-size: 15px;
@@ -3303,4 +3322,300 @@ section,
 
 .d-block {
   display: block !important;
+}
+
+/*--------------------------------------------------------------
+# Project Detail Page (project-detail.html)
+--------------------------------------------------------------*/
+
+/* GitHub / repository button ---------------------------------- */
+.cta-buttons .repo-slot {
+  display: inline-flex;
+}
+
+.cta-buttons .btn-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.cta-buttons .btn-repo i {
+  font-size: 1.1em;
+  transition: transform 0.3s ease;
+}
+
+.cta-buttons .btn-repo:hover i {
+  transform: translateY(-2px);
+}
+
+.cta-buttons .btn-repo-disabled {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: color-mix(in srgb, var(--heading-color), transparent 90%);
+  color: color-mix(in srgb, var(--heading-color), transparent 45%);
+  cursor: not-allowed;
+  user-select: none;
+  border: 1px dashed color-mix(in srgb, var(--heading-color), transparent 70%);
+}
+
+.cta-buttons .btn-repo-disabled i {
+  font-size: 1.05em;
+}
+
+/* Secondary links under the CTA buttons ----------------------- */
+.project-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.project-nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  transition: all 0.3s ease;
+}
+
+.project-nav-links a i {
+  transition: transform 0.3s ease;
+}
+
+.project-nav-links a:hover {
+  color: var(--heading-color);
+}
+
+.project-nav-links a:hover i {
+  transform: translateX(3px);
+}
+
+/* Repository description under the tech badges ---------------- */
+.repo-inline-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 1.25rem;
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.repo-inline-note i {
+  color: var(--heading-color);
+  font-size: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Project facts card ------------------------------------------ */
+.pd-info-row {
+  margin-top: 1rem;
+}
+
+.project-facts {
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: 16px;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+}
+
+.project-facts h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--heading-color);
+}
+
+.project-facts .row > [class*="col-"]:first-child {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+.project-facts .row > [class*="col-"]:last-child {
+  padding-right: 0;
+  padding-left: 24px;
+}
+
+.project-facts .fact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 12px 0;
+  border-bottom: 1px dashed color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.project-facts .fact-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.project-facts .fact-value {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--heading-color);
+}
+
+.project-facts .facts-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-size: 12.5px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.project-facts .facts-note i {
+  color: var(--accent-color);
+}
+
+/* Hiring call to action --------------------------------------- */
+.hire-card {
+  height: 100%;
+  padding: 30px;
+  border-radius: 16px;
+  color: var(--contrast-color);
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent-color));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hire-card .hire-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--contrast-color);
+  margin-bottom: 16px;
+}
+
+.hire-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--contrast-color);
+}
+
+.hire-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--contrast-color), transparent 12%);
+  margin-bottom: 20px;
+}
+
+.hire-card .hire-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hire-card .btn-hire-primary,
+.hire-card .btn-hire-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hire-card .btn-hire-primary {
+  background-color: var(--contrast-color);
+  color: var(--heading-color);
+}
+
+.hire-card .btn-hire-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hire-card .btn-hire-outline {
+  background-color: transparent;
+  color: var(--contrast-color);
+  border: 1.5px solid color-mix(in srgb, var(--contrast-color), transparent 45%);
+}
+
+.hire-card .btn-hire-outline:hover {
+  background-color: color-mix(in srgb, var(--contrast-color), transparent 88%);
+  transform: translateY(-3px);
+}
+
+/* Portfolio card title link (index.html) ---------------------- */
+.portfolio .portfolio-entry .entry-image .entry-overlay .entry-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio .portfolio-entry .entry-image .entry-overlay .entry-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+/* Responsive --------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .pd-info-row {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-title {
+    padding-top: 100px;
+  }
+
+  .project-facts,
+  .hire-card {
+    padding: 22px;
+  }
+
+  .project-facts .row > [class*="col-"]:first-child,
+  .project-facts .row > [class*="col-"]:last-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .project-facts .fact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .project-facts .fact-value {
+    text-align: left;
+  }
+
+  .cta-buttons .btn-view-project,
+  .cta-buttons .btn-repo-disabled,
+  .cta-buttons .btn-next-project {
+    width: 100%;
+    justify-content: center;
+  }
 }
